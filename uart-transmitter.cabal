@@ -1,0 +1,69 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 7d41c4e907e5b5251f264c90453eedc42c1cb08c0c8cd6bcbf886cad072e1c75
+
+name:           uart-transmitter
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/uart-transmitter#readme>
+homepage:       https://github.com/githubuser/uart-transmitter#readme
+bug-reports:    https://github.com/githubuser/uart-transmitter/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/uart-transmitter
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_uart_transmitter
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , clash-prelude >=1.2
+  default-language: Haskell2010
+
+executable uart-transmitter-exe
+  main-is: Main.hs
+  other-modules:
+      UART.Config
+      UART.ConfigGen
+      UART.Tx
+      UART.TxDemo
+      Paths_uart_transmitter
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , clash-prelude >=1.2
+    , uart-transmitter
+  default-language: Haskell2010
+
+test-suite uart-transmitter-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_uart_transmitter
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , clash-prelude >=1.2
+    , uart-transmitter
+  default-language: Haskell2010
